@@ -1,0 +1,23 @@
+export const portfolioConfig = {
+  developerName: "Portfolio Candidate",
+  developerTitle: "React & Full-Stack Developer",
+  githubUrl: "https://github.com",
+  linkedinUrl: "https://linkedin.com",
+  projectName: "The Alpine Haven — Luxury Chalet & Resort Management",
+  techStack: [
+    { name: "React 18", desc: "Modern functional components, custom hooks, and React context architecture" },
+    { name: "TanStack React Query", desc: "Server state management, background caching, pagination & optimistic mutations" },
+    { name: "In-Memory Session Engine", desc: "Client-side offline sandbox with zero backend dependency & instant refresh reset" },
+    { name: "Styled Components", desc: "Component-scoped styles, design tokens, and smooth light/dark mode transitions" },
+    { name: "React Hook Form", desc: "Performant form validation and field sanitization" },
+    { name: "Recharts", desc: "Interactive data visualization for sales, stays, and resort occupancy" },
+  ],
+  keyFeatures: [
+    "🏨 Cabin Inventory: Full CRUD operations, curated luxury image gallery, and cabin duplication",
+    "📅 Bookings Workflow: Real-time filtering, multi-field sorting, server pagination, and check-in/out workflows",
+    "🍳 Add-on Services: Dynamic breakfast upsell calculation and payment status tracking",
+    "📊 Executive Dashboard: Occupancy rates, 7/30/90-day activity trends, and stay duration analytics",
+    "🌓 Dark Mode Engine: System & user theme persistence using CSS custom properties and Context API",
+    "⚡ Reviewer Fast Access: Zero-credential 1-click demo entry designed for portfolio evaluations",
+  ],
+};
