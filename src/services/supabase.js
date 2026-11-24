@@ -1,7 +1,17 @@
+// The Alpine Haven uses a high-performance in-memory self-contained session backend (localBackend.js).
+// This mock client stub safely satisfies any legacy or third-party references without requiring network access.
+export const supabaseUrl = "";
 
-import { createClient } from '@supabase/supabase-js'
-export const supabaseUrl = 'https://erwyocngnsqigdbemltn.supabase.co'
-const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVyd3lvY25nbnNxaWdkYmVtbHRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM1MjE5NzQsImV4cCI6MjA1OTA5Nzk3NH0.sAXhq_gFMymlfxzIuPCAxl-eR9-cwlr9kYe_uMqaN_U';
-const supabase = createClient(supabaseUrl, supabaseKey);
+const supabaseMock = {
+  from: () => ({
+    select: () => Promise.resolve({ data: [], error: null }),
+    insert: () => Promise.resolve({ data: [], error: null }),
+    update: () => Promise.resolve({ data: [], error: null }),
+    delete: () => Promise.resolve({ data: [], error: null }),
+  }),
+  auth: {
+    getUser: () => Promise.resolve({ data: { user: null }, error: null }),
+  },
+};
 
-export default supabase;
+export default supabaseMock;

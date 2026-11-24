@@ -12,17 +12,23 @@ const StyledSelect = styled.select`
   background-color: var(--color-grey-0);
   font-weight: 500;
   box-shadow: var(--shadow-sm);
+
+  @media (max-width: 640px) {
+    width: 100%;
+    font-size: 1.3rem;
+  }
 `;
 
-
-function Select({options, value,onChange,...props}){
-
-    return(
-        <StyledSelect onChange={onChange} value={value} {...props}>
-            {options.map(option=> <option value={option.value} key={option.value}>{option.label}</option>)}
-        </StyledSelect>
-    )
+function Select({ options, value, onChange, ...props }) {
+  return (
+    <StyledSelect onChange={onChange} value={value} {...props}>
+      {options.map((option) => (
+        <option value={option.value} key={option.value}>
+          {option.label}
+        </option>
+      ))}
+    </StyledSelect>
+  );
 }
-
 
 export default Select;

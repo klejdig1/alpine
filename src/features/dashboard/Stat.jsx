@@ -12,6 +12,12 @@ const StyledStat = styled.div`
   row-gap: 0.4rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
+  @media (max-width: 440px) {
+    grid-template-columns: 4.8rem 1fr;
+    column-gap: 1.2rem;
+    padding: 1.2rem;
+  }
+
   &:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
@@ -31,6 +37,11 @@ const Icon = styled.div`
     width: 3.2rem;
     height: 3.2rem;
     color: var(--color-${(props) => props.color}-700);
+
+    @media (max-width: 440px) {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
   }
 `;
 

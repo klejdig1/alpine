@@ -52,7 +52,11 @@ const Main = styled.main`
   overflow-y: auto;
 
   @media (max-width: 768px) {
-    padding: 2rem 1.6rem 4rem;
+    padding: 2rem 1.4rem 4rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.6rem 1rem 3.2rem;
   }
 `;
 

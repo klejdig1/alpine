@@ -31,6 +31,13 @@ const Header = styled.header`
   align-items: center;
   justify-content: space-between;
 
+  @media (max-width: 640px) {
+    padding: 1.6rem 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
   svg {
     height: 3.2rem;
     width: 3.2rem;
@@ -53,6 +60,10 @@ const Header = styled.header`
 
 const Section = styled.section`
   padding: 3.2rem 4rem 1.2rem;
+
+  @media (max-width: 640px) {
+    padding: 2rem 1.6rem 1.2rem;
+  }
 `;
 
 const Guest = styled.div`
@@ -75,6 +86,13 @@ const Price = styled.div`
   padding: 1.6rem 3.2rem;
   border-radius: var(--border-radius-sm);
   margin-top: 2.4rem;
+
+  @media (max-width: 640px) {
+    padding: 1.2rem 1.6rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
 
   background-color: ${(props) =>
     props.isPaid ? "var(--color-green-100)" : "var(--color-yellow-100)"};
@@ -99,6 +117,11 @@ const Footer = styled.footer`
   font-size: 1.2rem;
   color: var(--color-grey-500);
   text-align: right;
+
+  @media (max-width: 640px) {
+    padding: 1.2rem 1.6rem;
+    text-align: left;
+  }
 `;
 
 // A purely presentational component

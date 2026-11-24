@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import {useSearchParams} from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 const StyledFilter = styled.div`
   border: 1px solid var(--color-grey-100);
@@ -9,6 +9,11 @@ const StyledFilter = styled.div`
   padding: 0.4rem;
   display: flex;
   gap: 0.4rem;
+  flex-wrap: wrap;
+
+  @media (max-width: 480px) {
+    width: 100%;
+  }
 `;
 
 const FilterButton = styled.button`
@@ -25,9 +30,15 @@ const FilterButton = styled.button`
   border-radius: var(--border-radius-sm);
   font-weight: 500;
   font-size: 1.4rem;
-  /* To give the same height as select */
   padding: 0.44rem 0.8rem;
   transition: all 0.3s;
+  cursor: pointer;
+
+  @media (max-width: 480px) {
+    font-size: 1.2rem;
+    padding: 0.4rem 0.6rem;
+    flex: 1 1 auto;
+  }
 
   &:hover:not(:disabled) {
     background-color: var(--color-brand-600);
@@ -35,28 +46,30 @@ const FilterButton = styled.button`
   }
 `;
 
+function Filter({ filterField, options }) {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const currFilter = searchParams.get(filterField) || options[0].value;
 
+  function handleClick(value) {
+    searchParams.set(filterField, value);
+    if (searchParams.get("page")) searchParams.set("page", 1);
+    setSearchParams(searchParams);
+  }
 
-function Filter({filterField,options}){
-    const [searchParams,setSearchParams]=useSearchParams();
-    const currFilter= searchParams.get(filterField) || options[0].value;
-
-    function handleClick(value){
-        searchParams.set(filterField,value);
-        if (searchParams.get('page')) searchParams.set('page',1)
-
-        setSearchParams(searchParams);
-
-    }
-
-  return(
-      <StyledFilter>
-          {options.map(option =>
-           <FilterButton $active={option.value === currFilter} key={option.value} disabled={option.value === currFilter} onClick={()=>handleClick(option.value)}>{option.label}</FilterButton>
-          )}
-      </StyledFilter>
-  )
+  return (
+    <StyledFilter>
+      {options.map((option) => (
+        <FilterButton
+          key={option.value}
+          onClick={() => handleClick(option.value)}
+          $active={option.value === currFilter}
+          disabled={option.value === currFilter}
+        >
+          {option.label}
+        </FilterButton>
+      ))}
+    </StyledFilter>
+  );
 }
-
 
 export default Filter;

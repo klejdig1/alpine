@@ -8,11 +8,16 @@ const StyledUserAvatar = styled.div`
   font-weight: 500;
   font-size: 1.4rem;
   color: var(--color-grey-600);
+
+  @media (max-width: 640px) {
+    & span {
+      display: none;
+    }
+  }
 `;
 
 const Avatar = styled.img`
   display: block;
-  width: 4rem;
   width: 3.6rem;
   aspect-ratio: 1;
   object-fit: cover;

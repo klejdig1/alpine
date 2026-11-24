@@ -16,6 +16,11 @@ const StyledHeader = styled.header`
     padding: 1.2rem 1.6rem;
     justify-content: space-between;
   }
+
+  @media (max-width: 480px) {
+    padding: 0.8rem 1.2rem;
+    gap: 0.8rem;
+  }
 `;
 
 const MenuToggle = styled.button`

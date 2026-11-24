@@ -33,7 +33,7 @@ function CabinRevenueChart({ cabins = [], bookings = [] }) {
     const bookingsCount = cabinBookings.length;
 
     return {
-      cabin: `Cabin ${cabin.name}`,
+      cabin: cabin.name ? `${cabin.name}` : "Cabin",
       revenue,
       bookingsCount,
     };
@@ -58,17 +58,19 @@ function CabinRevenueChart({ cabins = [], bookings = [] }) {
       </div>
 
       <ResponsiveContainer width="100%" height={260}>
-        <BarChart data={data} margin={{ top: 10, right: 10, left: 10, bottom: 0 }}>
+        <BarChart data={data} margin={{ top: 10, right: 10, left: -10, bottom: 0 }}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis
             dataKey="cabin"
-            tick={{ fill: isDarkMode ? "#e5e7eb" : "#4b5563" }}
+            tick={{ fill: isDarkMode ? "#e5e7eb" : "#4b5563", fontSize: 11 }}
             tickLine={{ stroke: isDarkMode ? "#e5e7eb" : "#4b5563" }}
+            interval={0}
           />
           <YAxis
             unit="$"
-            tick={{ fill: isDarkMode ? "#e5e7eb" : "#4b5563" }}
+            tick={{ fill: isDarkMode ? "#e5e7eb" : "#4b5563", fontSize: 11 }}
             tickLine={{ stroke: isDarkMode ? "#e5e7eb" : "#4b5563" }}
+            width={50}
           />
           <Tooltip
             contentStyle={{
